@@ -1,0 +1,6 @@
+ID	Label	Type
+ID	LABEL	TYPE
+PR:000014687	thyroxine-binding globulin	owl:Class
+OBI:0000443	analyte assay	owl:Class
+IAO:0000115	definition	owl:AnnotationProperty
+IAO:0000109	measurement datum	owl:Class

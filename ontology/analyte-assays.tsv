@@ -1,3 +1,0 @@
-ID	Label	Definition	Provantis Term	Parent	From Assay	Analyte	Units
-ID	LABEL	A definition		C %			
-CEBS:0001234	globulin measurement datum	Amount of globulin in a specimen	Globulin	measurement datum	analyte assay	thyroxine-binding globulin	g/DL

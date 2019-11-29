@@ -1,0 +1,3 @@
+ID	Label	Type	Parent
+ID	LABEL	TYPE	C %
+CEBS:VS1	concentration value specification	owl:Class	value specification

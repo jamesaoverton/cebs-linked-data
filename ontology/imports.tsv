@@ -1,6 +1,45 @@
-ID	Label	Type
-ID	LABEL	TYPE
-PR:000014687	thyroxine-binding globulin	owl:Class
-OBI:0000443	analyte assay	owl:Class
+ID	Label	Type	Parent
+ID	LABEL	TYPE	C %
+BFO:0000051	has part	owl:ObjectProperty
+BFO:0000055	realizes	owl:ObjectProperty
+RO:0000052	inheres in	owl:ObjectProperty
+OBI:0000293	has specified input	owl:ObjectProperty
+OBI:0000299	has specified output	owl:ObjectProperty
+IAO:0000039	has measurement unit label	owl:ObjectProperty
 IAO:0000115	definition	owl:AnnotationProperty
-IAO:0000109	measurement datum	owl:Class
+IAO:0000118	alternative term	owl:AnnotationProperty
+BFO:0000015	process	owl:Class
+GO:0008150	biological process	owl:Class	process
+GO:0050817	coagulation	owl:Class	biological process
+GO:0002377	immunoglobulin production	owl:Class	biological process
+HP:0000118	Phenotypic Abnormality	owl:Class
+HP:0001944	Dehydration	owl:Class	Phenotypic Abnormality
+DOID:419	disease	owl:Class
+DOID:419	liver disease	owl:Class	disease
+OBI:0000011	planned process	owl:Class
+OBI:0000070	assay	owl:Class	planned process
+OBI:0000443	analyte assay	owl:Class	assay
+OBI:0000820	activated partial thromboplastin time assay	owl:Class	assay
+OBI:0000418	measuring glucose concentration in blood serum assay	owl:Class	analyte assay
+OBI:0200000	data transformation	owl:Class	planned process
+OBI:0200170	averaging data transformation	owl:Class	data transformation
+OBI:0200041	k-means clustering	owl:Class	data transformation
+BFO:0000023	role	owl:Class
+OBI:0000275	analyte role	owl:Class	role
+IAO:0000030	information content entity	owl:Class
+OBI:0001933	value specification	owl:Class	information content entity
+IAO:0000027	data item	owl:Class	information content entity
+OBI:0000679	average value	owl:Class	data item
+IAO:0000109	measurement datum	owl:Class	data item
+IAO:0000003	measurement unit label	owl:Class	information content entity
+BFO:0000040	material entity	owl:Class
+PR:000000001	protein	owl:Class	material entity
+PR:000014687	thyroxine-binding globulin	owl:Class	protein
+PR:000000828	alanine aminotransferase 1	owl:Class	protein
+PR:000003918	serum albumin	owl:Class	protein
+PR:000003968	alkaline phosphatase, tissue-nonspecific isozyme	owl:Class	protein
+PR:000008153	aspartate aminotransferase, cytoplasmic	owl:Class	protein
+CHEBI:24431	chemical entity	owl:Class	material entity
+CHEBI:36277	bile acid salt	owl:Class	chemical entity
+CHEBI:16990	bilirubin IXα	owl:Class	chemical entity
+CHEBI:17234	glucose	owl:Class	chemical entity

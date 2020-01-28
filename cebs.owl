@@ -588,12 +588,19 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/DOID_409 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/DOID_409">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_419"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liver disease</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/DOID_419 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/DOID_419">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_419"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease</rdfs:label>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liver disease</rdfs:label>
     </Class>
     
 
@@ -680,6 +687,7 @@
     <!-- http://purl.obolibrary.org/obo/OBI_0000011 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000011">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">planned process</rdfs:label>
     </Class>
     
@@ -721,6 +729,24 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OBI_0000651 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000651">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0100051"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">urine specimen</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000655 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000655">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0100051"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">blood specimen</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OBI_0000679 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000679">
@@ -744,6 +770,15 @@
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001933">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">value specification</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0100051 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0100051">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">specimen</rdfs:label>
     </Class>
     
 

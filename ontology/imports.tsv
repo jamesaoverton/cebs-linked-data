@@ -15,8 +15,8 @@ GO:0002377	immunoglobulin production	owl:Class	biological process
 HP:0000118	Phenotypic Abnormality	owl:Class
 HP:0001944	Dehydration	owl:Class	Phenotypic Abnormality
 DOID:419	disease	owl:Class
-DOID:419	liver disease	owl:Class	disease
-OBI:0000011	planned process	owl:Class
+DOID:409	liver disease	owl:Class	disease
+OBI:0000011	planned process	owl:Class	process
 OBI:0000070	assay	owl:Class	planned process
 OBI:0000443	analyte assay	owl:Class	assay
 OBI:0000820	activated partial thromboplastin time assay	owl:Class	assay
@@ -43,3 +43,6 @@ CHEBI:24431	chemical entity	owl:Class	material entity
 CHEBI:36277	bile acid salt	owl:Class	chemical entity
 CHEBI:16990	bilirubin IXα	owl:Class	chemical entity
 CHEBI:17234	glucose	owl:Class	chemical entity
+OBI:0100051	specimen	owl:Class	material entity
+OBI:0000651	urine specimen	owl:Class	specimen
+OBI:0000655	blood specimen	owl:Class	specimen

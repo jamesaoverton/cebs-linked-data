@@ -88,12 +88,12 @@ build/validation.owl: ontology/imports.tsv ontology/value_specifications.tsv | b
 	$(foreach t,$^,--template $t) \
 	--output $@
 
-build/endpoints_report.txt: build/validation.owl build/endpoints.tsv
+build/endpoints_report.%: build/validation.owl build/endpoints.tsv
 	$(ROBOT) validate \
 	--input $< \
 	--table $(word 2,$^) \
+	--standalone true \
 	--output $@
-
 
 .PHONY: update-tsv
 update-tsv: ontology/imports.tsv ontology/endpoints.tsv
@@ -118,7 +118,7 @@ clean: tidy
 	rm -f cebs.owl
 
 .PHONY: all
-all: build/endpoints_report.txt cebs.owl
+all: build/endpoints_report.txt build/endpoints_report.html cebs.owl
 
 .PHONY: update
 update: tidy update-tsv all

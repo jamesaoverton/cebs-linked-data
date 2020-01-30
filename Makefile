@@ -20,6 +20,7 @@
 
 MAKEFLAGS += --warn-undefined-variables
 SHELL := bash
+
 .SHELLFLAGS := -eu -o pipefail -c
 .DEFAULT_GOAL := all
 .DELETE_ON_ERROR:
@@ -29,6 +30,34 @@ SHELL := bash
 OBO = http://purl.obolibrary.org/obo
 LIB = lib
 ROBOT := java -jar build/robot.jar
+
+# VIEW Endpoints: The validated endpoints table
+ENDPOINTS := build/endpoints.html build/endpoints.xlsx
+build/endpoints.%: build/validation.owl build/endpoints.tsv
+	$(ROBOT) validate \
+	--input $< \
+	--table $(word 2,$^) \
+	--standalone true \
+	--output $@
+
+# VIEW Tree View: The complete ontology
+TREES := build/cebs.html cebs.owl
+build/cebs.html: cebs.owl | build/robot-tree.jar
+	java -jar build/robot-tree.jar tree \
+	--input $< \
+	--tree $@
+	mv $@ $@.tmp
+	sed "s/params.get\('text'\)/params.get\('text'\) \|\| 'assay'/" $@.tmp > $@
+	rm $@.tmp
+
+VIEWS := $(ENDPOINTS) $(TREES)
+
+# ACTION Fetch the latest data, validate it, and rebuild
+update:
+	make tidy $(VIEWS)
+
+
+
 
 
 ### Set Up
@@ -47,6 +76,8 @@ ontology:
 build/robot.jar: | build
 	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.5.0/robot.jar
 
+build/robot-tree.jar: | build
+	curl -L -o $@ https://build.obolibrary.io/job/ontodev/job/robot/job/tree-view/lastSuccessfulBuild/artifact/bin/robot.jar
 
 
 ### ROBOT Validation
@@ -88,19 +119,6 @@ build/validation.owl: ontology/imports.tsv ontology/value_specifications.tsv | b
 	$(foreach t,$^,--template $t) \
 	--output $@
 
-build/endpoints_report.%: build/validation.owl build/endpoints.tsv
-	$(ROBOT) validate \
-	--input $< \
-	--table $(word 2,$^) \
-	--standalone true \
-	--output $@
-
-.PHONY: update-tsv
-update-tsv: ontology/imports.tsv ontology/endpoints.tsv
-
-
-
-
 # TODO: Fix CEBS prefix
 cebs.owl: $(source_files) | build/robot.jar
 	$(ROBOT) template \
@@ -110,7 +128,7 @@ cebs.owl: $(source_files) | build/robot.jar
 
 .PHONY: tidy
 tidy:
-	rm -f $(source_files) build/cebs.xlsx build/endpoints* build/validation.owl
+	rm -f $(source_files) $(VIEWS)
 
 .PHONY: clean
 clean: tidy
@@ -118,7 +136,4 @@ clean: tidy
 	rm -f cebs.owl
 
 .PHONY: all
-all: build/endpoints_report.txt build/endpoints_report.html cebs.owl
-
-.PHONY: update
-update: tidy update-tsv all
+all: cebs.owl

@@ -47,7 +47,7 @@ build/cebs.html: cebs.owl | build/robot-tree.jar
 	--input $< \
 	--tree $@
 	mv $@ $@.tmp
-	sed "s/params.get\('text'\)/params.get\('text'\) \|\| 'assay'/" $@.tmp > $@
+	sed "s/params.get('text')/params.get('text') || 'assay'/" $@.tmp > $@
 	rm $@.tmp
 
 VIEWS := $(ENDPOINTS) $(TREES)

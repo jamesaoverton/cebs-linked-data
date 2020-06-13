@@ -117,15 +117,78 @@
     
 
 
+    <!-- http://example.com/CEBS_VS2 -->
+
+    <Class rdf:about="http://example.com/CEBS_VS2">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mass value specification</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_VS3 -->
+
+    <Class rdf:about="http://example.com/CEBS_VS3">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">quantity value specification</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_VS4 -->
+
+    <Class rdf:about="http://example.com/CEBS_VS4">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">volume value specification</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_VS5 -->
+
+    <Class rdf:about="http://example.com/CEBS_VS5">
+        <rdfs:subClassOf rdf:resource="http://example.com/CEBS_VS6"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">percentage value specification</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_VS6 -->
+
+    <Class rdf:about="http://example.com/CEBS_VS6">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ratio value specification</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://example.com/CEBS_X1 -->
 
     <Class rdf:about="http://example.com/CEBS_X1">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000820"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
         <rdfs:subClassOf>
-            <Restriction>
-                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0200170"/>
-            </Restriction>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000029971"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000029971"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <Restriction>
@@ -133,7 +196,18 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activated partial thromboplastin time, activity</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U1"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creatine kinase activity assay</rdfs:label>
     </Class>
     
 
@@ -153,7 +227,7 @@
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
                                     <Restriction>
                                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16990"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_17855"/>
                                     </Restriction>
                                 </intersectionOf>
                             </Class>
@@ -161,7 +235,7 @@
                     </Restriction>
                     <Restriction>
                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16990"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_17855"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
@@ -172,15 +246,26 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bilirubin, total</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U2"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triglyceride concentration assay</rdfs:label>
     </Class>
     
 
 
-    <!-- http://example.com/CEBS_X11 -->
+    <!-- http://example.com/CEBS_X101 -->
 
-    <Class rdf:about="http://example.com/CEBS_X11">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000418"/>
+    <Class rdf:about="http://example.com/CEBS_X101">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
         <rdfs:subClassOf>
             <Class>
                 <intersectionOf rdf:parseType="Collection">
@@ -192,7 +277,7 @@
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
                                     <Restriction>
                                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_17234"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000948"/>
                                     </Restriction>
                                 </intersectionOf>
                             </Class>
@@ -200,7 +285,557 @@
                     </Restriction>
                     <Restriction>
                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_17234"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000948"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heart weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X102 -->
+
+    <Class rdf:about="http://example.com/CEBS_X102">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002113"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002113"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kidney weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X103 -->
+
+    <Class rdf:about="http://example.com/CEBS_X103">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002107"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002107"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liver weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X104 -->
+
+    <Class rdf:about="http://example.com/CEBS_X104">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002048"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002048"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lung weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X105 -->
+
+    <Class rdf:about="http://example.com/CEBS_X105">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002370"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002370"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thymus weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X106 -->
+
+    <Class rdf:about="http://example.com/CEBS_X106">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000473"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000473"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">testis weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X107 -->
+
+    <Class rdf:about="http://example.com/CEBS_X107">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002106"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002106"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spleen weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X108 -->
+
+    <Class rdf:about="http://example.com/CEBS_X108">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000445"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002369"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UBERON_0002369"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://purl.obolibrary.org/obo/UO_0000021"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adrenal gland weight assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X11 -->
+
+    <Class rdf:about="http://example.com/CEBS_X11">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000767"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000767"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">basophil count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X12 -->
+
+    <Class rdf:about="http://example.com/CEBS_X12">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000771"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000771"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">eosinophil count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X13 -->
+
+    <Class rdf:about="http://example.com/CEBS_X13">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000232"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000232"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U6"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">erythrocyte count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X14 -->
+
+    <Class rdf:about="http://example.com/CEBS_X14">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_35143"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_35143"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
@@ -211,7 +846,268 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Glucose</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U5"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hemoglobin concentration assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X15 -->
+
+    <Class rdf:about="http://example.com/CEBS_X15">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000542"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000542"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lymphocyte count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X16 -->
+
+    <Class rdf:about="http://example.com/CEBS_X16">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000576"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000576"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monocyte count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X17 -->
+
+    <Class rdf:about="http://example.com/CEBS_X17">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000775"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000775"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutrophil count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X18 -->
+
+    <Class rdf:about="http://example.com/CEBS_X18">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000233"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000233"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">platelet count assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X19 -->
+
+    <Class rdf:about="http://example.com/CEBS_X19">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000558"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000558"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reticulocyte count assay</rdfs:label>
     </Class>
     
 
@@ -231,7 +1127,7 @@
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
                                     <Restriction>
                                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000000828"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16737"/>
                                     </Restriction>
                                 </intersectionOf>
                             </Class>
@@ -239,16 +1135,10 @@
                     </Restriction>
                     <Restriction>
                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000000828"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16737"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <Restriction>
-                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0200041"/>
-            </Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <Restriction>
@@ -256,15 +1146,106 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alanine aminotransferase, activity</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U2"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creatinine concentration assay</rdfs:label>
     </Class>
     
 
 
-    <!-- http://example.com/CEBS_X3 -->
+    <!-- http://example.com/CEBS_X20 -->
 
-    <Class rdf:about="http://example.com/CEBS_X3">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
+    <Class rdf:about="http://example.com/CEBS_X20">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_35143"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_35143"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0200170"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS2"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U7"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mean cell hemoglobin assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X21 -->
+
+    <Class rdf:about="http://example.com/CEBS_X21">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_35143"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_35143"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <Restriction>
                 <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
@@ -277,14 +1258,25 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albumin</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U5"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mean cell hemoglobin concentration assay</rdfs:label>
     </Class>
     
 
 
-    <!-- http://example.com/CEBS_X4 -->
+    <!-- http://example.com/CEBS_X22 -->
 
-    <Class rdf:about="http://example.com/CEBS_X4">
+    <Class rdf:about="http://example.com/CEBS_X22">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
         <rdfs:subClassOf>
             <Class>
@@ -316,7 +1308,118 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albumin to globulin, ratio</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U5"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">albumin concentration assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X3 -->
+
+    <Class rdf:about="http://example.com/CEBS_X3">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCIT_C919"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCIT_C919"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U2"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">urea nitrogen concentration assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X4 -->
+
+    <Class rdf:about="http://example.com/CEBS_X4">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000738"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000738"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS3"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U3"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">white blood cell count assay</rdfs:label>
     </Class>
     
 
@@ -324,6 +1427,62 @@
     <!-- http://example.com/CEBS_X5 -->
 
     <Class rdf:about="http://example.com/CEBS_X5">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000630"/>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000232"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CL_0000232"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0200170"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS4"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U4"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mean cell volume assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://example.com/CEBS_X6 -->
+
+    <Class rdf:about="http://example.com/CEBS_X6">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
         <rdfs:subClassOf>
             <Class>
@@ -351,62 +1510,22 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <Restriction>
-                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0200041"/>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <Restriction>
                 <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
-            </Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alkaline phosphatase, activity</rdfs:label>
-    </Class>
-    
-
-
-    <!-- http://example.com/CEBS_X6 -->
-
-    <Class rdf:about="http://example.com/CEBS_X6">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
-        <rdfs:subClassOf>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
+                <someValuesFrom>
                     <Restriction>
-                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
-                        <someValuesFrom>
-                            <Class>
-                                <intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
-                                    <Restriction>
-                                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000008153"/>
-                                    </Restriction>
-                                </intersectionOf>
-                            </Class>
-                        </someValuesFrom>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U1"/>
                     </Restriction>
-                    <Restriction>
-                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000008153"/>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <Restriction>
-                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OBI_0200170"/>
+                </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <Restriction>
-                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
-            </Restriction>
-        </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aspartate aminotransferase, activity</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alkaline phosphatase activity assay</rdfs:label>
     </Class>
     
 
@@ -426,7 +1545,7 @@
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
                                     <Restriction>
                                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_36277"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16113"/>
                                     </Restriction>
                                 </intersectionOf>
                             </Class>
@@ -434,7 +1553,7 @@
                     </Restriction>
                     <Restriction>
                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_36277"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16113"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
@@ -445,7 +1564,18 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bile salt/acid</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U2"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cholesterol concentration assay</rdfs:label>
     </Class>
     
 
@@ -465,7 +1595,7 @@
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
                                     <Restriction>
                                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16990"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
                                     </Restriction>
                                 </intersectionOf>
                             </Class>
@@ -473,7 +1603,7 @@
                     </Restriction>
                     <Restriction>
                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16990"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
@@ -484,7 +1614,18 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bilirubin, direct</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U5"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">total protein concentration assay</rdfs:label>
     </Class>
     
 
@@ -504,7 +1645,7 @@
                                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000275"/>
                                     <Restriction>
                                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
-                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16990"/>
+                                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000015410"/>
                                     </Restriction>
                                 </intersectionOf>
                             </Class>
@@ -512,7 +1653,7 @@
                     </Restriction>
                     <Restriction>
                         <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_16990"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PR_000015410"/>
                     </Restriction>
                 </intersectionOf>
             </Class>
@@ -523,7 +1664,18 @@
                 <someValuesFrom rdf:resource="http://example.com/CEBS_VS1"/>
             </Restriction>
         </rdfs:subClassOf>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bilirubin, indirect</rdfs:label>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <someValuesFrom>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                        <hasValue rdf:resource="http://example.com/CEBS_U1"/>
+                    </Restriction>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sorbitol dehydrogenase activity assay</rdfs:label>
     </Class>
     
 
@@ -552,6 +1704,24 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CHEBI_16113 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_16113">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24431"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cholesterol</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CHEBI_16737 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_16737">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24431"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creatinine</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CHEBI_16990 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_16990">
@@ -570,6 +1740,15 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CHEBI_17855 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_17855">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24431"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triglyceride</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CHEBI_24431 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_24431">
@@ -579,11 +1758,110 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CHEBI_35143 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_35143">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24431"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hemoglobin</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CHEBI_36277 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/CHEBI_36277">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24431"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bile acid salt</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000000 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000000">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000232 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000232">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">erythrocyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000233 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000233">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">platelet</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000542 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000542">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lymphocyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000558 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000558">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reticulocyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000576 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000576">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monocyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000738 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000738">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">leukocyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000767 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000767">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">basophil</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000771 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000771">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">eosinophil</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CL_0000775 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/CL_0000775">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutrophil</rdfs:label>
     </Class>
     
 
@@ -684,6 +1962,15 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/NCIT_C919 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/NCIT_C919">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_24431"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">urea nitrogen</rdfs:label>
+    </Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OBI_0000011 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000011">
@@ -725,6 +2012,24 @@
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000443">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analyte assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000445 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000445">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mass measurement assay</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000630 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000630">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hematology assay</rdfs:label>
     </Class>
     
 
@@ -841,7 +2146,7 @@
 
     <Class rdf:about="http://purl.obolibrary.org/obo/PR_000003968">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alkaline phosphatase, tissue-nonspecific isozyme</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alkaline phosphatase</rdfs:label>
     </Class>
     
 
@@ -861,6 +2166,287 @@
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thyroxine-binding globulin</rdfs:label>
     </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/PR_000015410 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/PR_000015410">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sorbitol dehydrogenase</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/PR_000029971 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/PR_000029971">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PR_000000001"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creatine kinase</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000465 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0000465">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">material anatomical entity</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000473 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0000473">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">testis</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000948 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0000948">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heart</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0002048 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0002048">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lung</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0002106 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0002106">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spleen</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0002107 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0002107">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liver</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0002113 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0002113">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kidney</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0002369 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0002369">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adrenal gland</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0002370 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0002370">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thymus</rdfs:label>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.com/CEBS_U1 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U1">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IU/L</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U2 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U2">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mg/dL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U3 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U3">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10^3/uL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U4 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U4">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U5 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U5">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">g/dL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U6 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U6">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10^6/uL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U7 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U7">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pg</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U8 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U8">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">%</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://example.com/CEBS_U9 -->
+
+    <NamedIndividual rdf:about="http://example.com/CEBS_U9">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mg/g</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C64780 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C64780">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C67015 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C67015">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mg/dL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C67244 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C67244">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10^3/uL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C67251 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C67251">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10^6/uL</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C67376 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C67376">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IU/L</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C69104 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/NCIT_C69104">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mg/g</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000021 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000021">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">g</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000025 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000025">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pg</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000187 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000187">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">%</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000208 -->
+
+    <NamedIndividual rdf:about="http://purl.obolibrary.org/obo/UO_0000208">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">g/dL</rdfs:label>
+    </NamedIndividual>
 </rdf:RDF>
 
 

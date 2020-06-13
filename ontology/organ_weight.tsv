@@ -1,0 +1,11 @@
+ID	Label	Standard Term	Parent Assay	Measurand	Data Transformation	Value Specification	Measurement Units	Description																		
+ID	LABEL		C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')																			
+			subclass-of|equivalent-to 'assay'	subclass-of|equivalent-to 'material entity'	subclass-of|equivalent-to 'data transformation'	subclass-of|equivalent-to 'value specification'	instance-of 'measurement unit label'	
+CEBS:X101	heart weight assay	Heart weight	mass measurement assay	heart		mass value specification	g	The measurement of the mass of the heart.
+CEBS:X102	kidney weight assay	Kidney weight	mass measurement assay	kidney		mass value specification	g	The measurement of the mass of a kidney.
+CEBS:X103	liver weight assay	Liver weight	mass measurement assay	liver		mass value specification	g	The measurement of the mass of the liver.
+CEBS:X104	lung weight assay	Lung weight	mass measurement assay	lung		mass value specification	g	The measurement of the mass of the lung.
+CEBS:X105	thymus weight assay	Thymus weight	mass measurement assay	thymus		mass value specification	g	The measurement of the mass of the thymus.
+CEBS:X106	testis weight assay	Testis weight	mass measurement assay	testis		mass value specification	g	The measurement of the mass of the testis.
+CEBS:X107	spleen weight assay	Spleen weight	mass measurement assay	spleen		mass value specification	g	The measurement of the mass of the spleen.
+CEBS:X108	adrenal gland weight assay	Adrenal gland weight	mass measurement assay	adrenal gland		mass value specification	g	The measurement of the mass of an adrenal gland.

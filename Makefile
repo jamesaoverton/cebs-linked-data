@@ -12,6 +12,14 @@
 # - GNU Make
 # - ROBOT <http://github.com/ontodev/robot>
 
+### Workflow
+#
+# 1. Edit the [Google Sheet](https://docs.google.com/spreadsheets/d/15TG1MDtDT0qB5fi7zNJp979iTYPYfOrdq_FHuNyYsTk)
+# 2. Run [Update](update) to fetch the latest data, validate it, and rebuild
+# 3. View the validation results:
+#     - [Clinpath](build/clinpath.html) The validated clinpath table ([clinpath.xlsx](build/clinpath.xlsx))
+#     - [Organ weight](build/organ_weight.html) The validated organ weight table ([organ_weight.xlsx](build/organ_weight.xlsx))
+# 4. If the tables were valid, then [view the tree](build/cebs.html) ([cebs.owl](cebs.owl))
 
 ### Configuration
 #
@@ -27,20 +35,27 @@ SHELL := bash
 .SUFFIXES:
 .SECONDARY:
 
-OBO = http://purl.obolibrary.org/obo
-LIB = lib
 ROBOT := java -jar build/robot.jar
 
-# VIEW Endpoints: The validated endpoints table
-ENDPOINTS := build/endpoints.html build/endpoints.xlsx
-build/endpoints.%: build/validation.owl build/endpoints.tsv
+ENDPOINTS := clinpath organ_weight
+ENDPOINT_FILES := $(foreach e,$(ENDPOINTS),build/$(e).html build/$(e).xlsx)
+
+build/%.html: build/validation.owl build/%.tsv | build/robot.jar
 	$(ROBOT) validate \
 	--input $< \
 	--table $(word 2,$^) \
+	--format html \
 	--standalone true \
-	--output $@
+	--output-dir $(dir $@)
 
-# VIEW Tree View: The complete ontology
+build/%.xlsx: build/validation.owl build/%.tsv | build/robot.jar
+	$(ROBOT) validate \
+	--input $< \
+	--table $(word 2,$^) \
+	--format xlsx \
+	--standalone true \
+	--output-dir $(dir $@)
+
 TREES := build/cebs.html cebs.owl
 build/cebs.html: cebs.owl | build/robot-tree.jar
 	java -jar build/robot-tree.jar tree \
@@ -50,9 +65,9 @@ build/cebs.html: cebs.owl | build/robot-tree.jar
 	sed "s/params.get('text')/params.get('text') || 'assay'/" $@.tmp > $@
 	rm $@.tmp
 
-VIEWS := $(ENDPOINTS) $(TREES)
+VIEWS := $(ENDPOINT_FILES) $(TREES)
 
-# ACTION Fetch the latest data, validate it, and rebuild
+.PHONY: update
 update:
 	make tidy $(VIEWS)
 
@@ -74,7 +89,7 @@ ontology:
 # We use the official development version of ROBOT for most things.
 
 build/robot.jar: | build
-	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.5.0/robot.jar
+	curl -L -o $@ https://build.obolibrary.io/job/ontodev/job/robot/job/validate/lastSuccessfulBuild/artifact/bin/robot.jar
 
 build/robot-tree.jar: | build
 	curl -L -o $@ https://build.obolibrary.io/job/ontodev/job/robot/job/tree-view/lastSuccessfulBuild/artifact/bin/robot.jar
@@ -96,9 +111,9 @@ NTP/%_report.xlsx: NTP/%.csv cebs.owl | build/robot.jar
 ### Ontology Source Tables
 
 SHEET := 15TG1MDtDT0qB5fi7zNJp979iTYPYfOrdq_FHuNyYsTk
-tables = imports value_specifications endpoints
-source_files = $(foreach o,$(tables),ontology/$(o).tsv)
-templates = $(foreach i,$(source_files),--template $(i))
+TABLES = imports value_specifications units $(ENDPOINTS)
+SOURCE_TABLES = $(foreach o,$(TABLES),ontology/$(o).tsv)
+BUILD_TABLES = $(foreach o,$(TABLES),build/$(o).tsv)
 
 ### Tables
 #
@@ -110,25 +125,25 @@ build/cebs.xlsx: | build
 ontology/%.tsv: build/cebs.xlsx
 	xlsx2csv -d tab -n $* $< $@
 
-build/endpoints.tsv: ontology/endpoints.tsv
-	sed '/LABEL/d' $< > $@
+build/%.tsv: ontology/%.tsv
+	sed '/ID	LABEL/d' $< > $@
 
-build/validation.owl: ontology/imports.tsv ontology/value_specifications.tsv | build/robot.jar
+build/validation.owl: ontology/imports.tsv ontology/value_specifications.tsv ontology/units.tsv | build/robot.jar
 	$(ROBOT) template \
 	--prefix "CEBS: http://example.com/CEBS_" \
 	$(foreach t,$^,--template $t) \
 	--output $@
 
 # TODO: Fix CEBS prefix
-cebs.owl: $(source_files) | build/robot.jar
+cebs.owl: $(SOURCE_TABLES) | build/robot.jar
 	$(ROBOT) template \
 	--prefix "CEBS: http://example.com/CEBS_" \
-	$(templates) \
+	$(foreach t,$^,--template $t) \
 	--output $@
 
 .PHONY: tidy
 tidy:
-	rm -f $(source_files) $(VIEWS)
+	rm -f build/cebs.xlsx $(SOURCE_TABLES) $(BUILD_TABLES) build/validation.owl $(VIEWS)
 
 .PHONY: clean
 clean: tidy

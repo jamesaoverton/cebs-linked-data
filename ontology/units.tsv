@@ -1,0 +1,11 @@
+ID	Label	Type
+ID	LABEL	TYPE
+CEBS:U1	IU/L	measurement unit label
+CEBS:U2	mg/dL	measurement unit label
+CEBS:U3	10^3/uL	measurement unit label
+CEBS:U4	fL	measurement unit label
+CEBS:U5	g/dL	measurement unit label
+CEBS:U6	10^6/uL	measurement unit label
+CEBS:U7	pg	measurement unit label
+CEBS:U8	%	measurement unit label
+CEBS:U9	mg/g	measurement unit label

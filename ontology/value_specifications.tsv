@@ -1,3 +1,8 @@
 ID	Label	Type	Parent
 ID	LABEL	TYPE	C %
 CEBS:VS1	concentration value specification	owl:Class	value specification
+CEBS:VS2	mass value specification	owl:Class	value specification
+CEBS:VS3	quantity value specification	owl:Class	value specification
+CEBS:VS4	volume value specification	owl:Class	value specification
+CEBS:VS5	percentage value specification	owl:Class	ratio value specification
+CEBS:VS6	ratio value specification	owl:Class	value specification

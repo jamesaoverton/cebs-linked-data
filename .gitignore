@@ -1,4 +1,3 @@
-.DS_Store
+.gitignore
+.git-credentials
 build/
-junk/
-shell.nix

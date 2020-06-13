@@ -1,4 +1,4 @@
-ID	Label	Type	Parent
+ID	Label	Type	Parent	Note
 ID	LABEL	TYPE	C %
 BFO:0000051	has part	owl:ObjectProperty
 BFO:0000055	realizes	owl:ObjectProperty
@@ -32,17 +32,58 @@ IAO:0000027	data item	owl:Class	information content entity
 OBI:0000679	average value	owl:Class	data item
 IAO:0000109	measurement datum	owl:Class	data item
 IAO:0000003	measurement unit label	owl:Class	information content entity
+UO:0000021	g	measurement unit label		mass unit
 BFO:0000040	material entity	owl:Class
-PR:000000001	protein	owl:Class	material entity
-PR:000014687	thyroxine-binding globulin	owl:Class	protein
-PR:000000828	alanine aminotransferase 1	owl:Class	protein
-PR:000003918	serum albumin	owl:Class	protein
-PR:000003968	alkaline phosphatase, tissue-nonspecific isozyme	owl:Class	protein
-PR:000008153	aspartate aminotransferase, cytoplasmic	owl:Class	protein
 CHEBI:24431	chemical entity	owl:Class	material entity
 CHEBI:36277	bile acid salt	owl:Class	chemical entity
 CHEBI:16990	bilirubin IXα	owl:Class	chemical entity
 CHEBI:17234	glucose	owl:Class	chemical entity
+CHEBI:16737	creatinine	owl:Class	chemical entity
+NCIT:C919	urea nitrogen	owl:Class	chemical entity	nitrogen compound
+PR:000000001	protein	owl:Class	material entity
+PR:000014687	thyroxine-binding globulin	owl:Class	protein
+PR:000000828	alanine aminotransferase 1	owl:Class	protein
+PR:000003918	serum albumin	owl:Class	protein
+PR:000003968	alkaline phosphatase	owl:Class	protein
+PR:000008153	aspartate aminotransferase, cytoplasmic	owl:Class	protein
+PR:000029971	creatine kinase	owl:Class	protein
+CL:0000000	cell	owl:Class	material entity
+CL:0000738	leukocyte	owl:Class	cell
+CL:0000232	erythrocyte	owl:Class	cell
+UBERON:0000465	material anatomical entity	owl:Class	material entity
+UBERON:0000948	heart	owl:Class	material anatomical entity
 OBI:0100051	specimen	owl:Class	material entity
 OBI:0000651	urine specimen	owl:Class	specimen
 OBI:0000655	blood specimen	owl:Class	specimen
+OBI:0000630	hematology assay	owl:Class	assay	
+OBI:0000445	mass measurement assay	owl:Class	assay
+NCIT:C67376	IU/L	measurement unit label		unit of arbitrary substance concentration
+NCIT:C67015	mg/dL	measurement unit label		unit of mass concentration
+NCIT:C67244	10^3/uL	measurement unit label		unit of cell concentration
+NCIT:C64780	fL	measurement unit label		unit of volume
+UBERON:0002113	kidney	owl:Class	material anatomical entity	abdomen element
+UBERON:0002107	liver	owl:Class	material anatomical entity	digestive system gland
+UBERON:0002048	lung	owl:Class	material anatomical entity	thoracic cavity element
+UBERON:0002370	thymus	owl:Class	material anatomical entity	endocrine gland
+UBERON:0000473	testis	owl:Class	material anatomical entity	gonad
+UBERON:0002106	spleen	owl:Class	material anatomical entity	abdominal viscera
+UBERON:0002369	adrenal gland	owl:Class	material anatomical entity	adrenal/interrenal gland
+CHEBI:16113	cholesterol	owl:Class	chemical entity
+PR:000015410	sorbitol dehydrogenase	owl:Class	protein
+CHEBI:17855	triglyceride	owl:Class	chemical entity
+CL:0000767	basophil	owl:Class	cell
+CL:0000771	eosinophil	owl:Class	cell
+CL:0000232	erythrocyte	owl:Class	cell
+CHEBI:35143	hemoglobin	owl:Class	chemical entity
+CL:0000542	lymphocyte	owl:Class	cell
+CL:0000576	monocyte	owl:Class	cell
+CL:0000775	neutrophil	owl:Class	cell
+CL:0000233	platelet	owl:Class	cell
+CL:0000558	reticulocyte	owl:Class	cell
+UO:0000208	g/dL	measurement unit label
+NCIT:C67251	10^6/uL	measurement unit label
+UO:0000025	pg	measurement unit label
+UO:0000187	%	measurement unit label
+NCIT:C69104	mg/g	measurement unit label
+	percentage calculation
+	ratio calculation

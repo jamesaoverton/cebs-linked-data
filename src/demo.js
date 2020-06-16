@@ -77,9 +77,11 @@ var assay_tree = new InspireTree({
   data: []
 });
 var assay_input = $('#assay_type');
+var selected_assay;
 assay_input.val('Any assay');
 assay_tree.on('node.click', function(event, node) {
   assay_input.val(node.text);
+  selected_assay = node;
 });
 $.getJSON('assay.json', function (data) {
   assay_tree.addNodes(data);
@@ -107,9 +109,18 @@ $('#limit').on('blur', function() {
 function build_query() {
   var template;
   var output = "query endpoint_search{\n";
-  output += "  studyTestDataDomainView(testName:\"";
-  output += assay_input.val();
-  output += "\", first:20){\n";
+  if (selected_assay && selected_assay.children) {
+    output += "  studyTestDataDomainView(testId_TestName_In:\"";
+    output += assay_input.val();
+    for (var i=0; i < selected_assay.children.length; i++) {
+      output += "," + selected_assay.children[i].text;
+    }
+    output += "\", first:20){\n";
+  } else {
+    output += "  studyTestDataDomainView(testName:\"";
+    output += assay_input.val();
+    output += "\", first:20){\n";
+  }
   output += "    edges{\n";
   output += "      node{\n";
   output += "        dataDomain\n";

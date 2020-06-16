@@ -1,0 +1,24 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX obo:  <http://purl.obolibrary.org/obo/>
+PREFIX cebs: <http://example.com/CEBS_>
+
+SELECT ?subject ?parent ?label
+WHERE {
+  {
+    # Manually describe the top-level nodes.
+    VALUES (?subject ?parent ?label) {
+      (obo:OBI_0000070 "" "assay")
+    }
+  }
+  UNION
+  {
+    ?subject
+      rdf:type owl:Class ;
+      rdfs:subClassOf+ obo:OBI_0000070 ; # assay
+      rdfs:subClassOf ?parent ;
+      cebs:A1 ?label .
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CEBSR Query Prototype</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/inspire-tree/1.8.0/inspire-tree.css">
+    <link rel="stylesheet" href="demo.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>CEBSR Query Prototype</h1>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><a id="browse-tab" href="#browse" aria-controls="search" role="tab" data-toggle="tab">Browse</a></li>
+        <li role="presentation" class="active"><a href="#search" aria-controls="search" role="tab" data-toggle="tab">Search</a></li>
+        <li role="presentation"><a href="#query" aria-controls="query" role="tab" data-toggle="tab" onclick="build_query()">Query</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="browse">
+          <ul>
+            <li><a href="https://manticore.niehs.nih.gov/cebssearch/cebsr">CEBSR API Home</a></li>
+            <li><a href="https://manticore.niehs.nih.gov/cebsr-api">CEBSR GraphQL Query</a></li>
+          </ul>
+        </div>
+
+        <div role="tabpanel" class="tab-pane active" id="search">
+          <div class="row">
+            <form class="form-horizontal col-md-6">
+              <div class="form-group">
+                <label for="assay_type" class="col-sm-3 control-label">Assay Type:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="assay_type" autocomplete="off">
+                </div>
+              </div>
+            </form>
+            <div id="trees" class="col-md-6">
+              <div id="assay_tree"></div>
+            </div>
+          </div> <!-- /row -->
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="query">
+          <div class="row">
+            <div id="query_editor" class="editor">QUERY</div>
+          </div> <!-- /row -->
+        </div>
+
+      <button type="" id="query_search" class="btn btn-primary">Search</button>
+      <div id="query_result">
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inspire-tree/1.8.0/inspire-tree.min.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>

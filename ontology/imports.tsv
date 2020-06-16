@@ -1,5 +1,5 @@
-ID	Label	Type	Parent	Note
-ID	LABEL	TYPE	C %
+ID	Label	Type	Parent	Note	Alternative Name
+ID	LABEL	TYPE	C %		A CEBS:A1
 BFO:0000051	has part	owl:ObjectProperty
 BFO:0000055	realizes	owl:ObjectProperty
 RO:0000052	inheres in	owl:ObjectProperty
@@ -17,10 +17,10 @@ HP:0001944	Dehydration	owl:Class	Phenotypic Abnormality
 DOID:419	disease	owl:Class
 DOID:409	liver disease	owl:Class	disease
 OBI:0000011	planned process	owl:Class	process
-OBI:0000070	assay	owl:Class	planned process
-OBI:0000443	analyte assay	owl:Class	assay
-OBI:0000820	activated partial thromboplastin time assay	owl:Class	assay
-OBI:0000418	measuring glucose concentration in blood serum assay	owl:Class	analyte assay
+OBI:0000070	assay	owl:Class	planned process		assay
+OBI:0000443	analyte assay	owl:Class	assay		analyte assay
+OBI:0000630	hematology assay	owl:Class	assay		hematology assay
+OBI:0000445	mass measurement assay	owl:Class	assay		mass measurement assay
 OBI:0200000	data transformation	owl:Class	planned process
 OBI:0200170	averaging data transformation	owl:Class	data transformation
 OBI:0200041	k-means clustering	owl:Class	data transformation
@@ -55,8 +55,8 @@ UBERON:0000948	heart	owl:Class	material anatomical entity
 OBI:0100051	specimen	owl:Class	material entity
 OBI:0000651	urine specimen	owl:Class	specimen
 OBI:0000655	blood specimen	owl:Class	specimen
-OBI:0000630	hematology assay	owl:Class	assay	
-OBI:0000445	mass measurement assay	owl:Class	assay
+
+
 NCIT:C67376	IU/L	measurement unit label		unit of arbitrary substance concentration
 NCIT:C67015	mg/dL	measurement unit label		unit of mass concentration
 NCIT:C67244	10^3/uL	measurement unit label		unit of cell concentration

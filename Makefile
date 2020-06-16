@@ -20,6 +20,8 @@
 #     - [Clinpath](build/clinpath.html) The validated clinpath table ([clinpath.xlsx](build/clinpath.xlsx))
 #     - [Organ weight](build/organ_weight.html) The validated organ weight table ([organ_weight.xlsx](build/organ_weight.xlsx))
 # 4. If the tables were valid, then [view the tree](build/cebs.html) ([cebs.owl](cebs.owl))
+#
+# [View query demo](build/www/)
 
 ### Configuration
 #
@@ -40,36 +42,24 @@ ROBOT := java -jar build/robot.jar
 ENDPOINTS := clinpath organ_weight
 ENDPOINT_FILES := $(foreach e,$(ENDPOINTS),build/$(e).html build/$(e).xlsx)
 
-build/%.html: build/validation.owl build/%.tsv | build/robot.jar
-	$(ROBOT) validate \
-	--input $< \
-	--table $(word 2,$^) \
-	--format html \
-	--standalone true \
-	--output-dir $(dir $@)
+### Common Tasks
 
-build/%.xlsx: build/validation.owl build/%.tsv | build/robot.jar
-	$(ROBOT) validate \
-	--input $< \
-	--table $(word 2,$^) \
-	--format xlsx \
-	--standalone true \
-	--output-dir $(dir $@)
+.PHONY: tidy
+tidy:
+	rm -f build/cebs.xlsx $(SOURCE_TABLES) $(BUILD_TABLES) build/validation.owl $(VIEWS)
 
-TREES := build/cebs.html cebs.owl
-build/cebs.html: cebs.owl | build/robot-tree.jar
-	java -jar build/robot-tree.jar tree \
-	--input $< \
-	--tree $@
-	mv $@ $@.tmp
-	sed "s/params.get('text')/params.get('text') || 'assay'/" $@.tmp > $@
-	rm $@.tmp
-
-VIEWS := $(ENDPOINT_FILES) $(TREES)
+.PHONY: clean
+clean: tidy
+	rm -rf build
+	rm -f cebs.owl
 
 .PHONY: update
 update:
 	make tidy $(VIEWS)
+
+.PHONY: all
+all: cebs.owl
+
 
 
 
@@ -141,14 +131,52 @@ cebs.owl: $(SOURCE_TABLES) | build/robot.jar
 	$(foreach t,$^,--template $t) \
 	--output $@
 
-.PHONY: tidy
-tidy:
-	rm -f build/cebs.xlsx $(SOURCE_TABLES) $(BUILD_TABLES) build/validation.owl $(VIEWS)
 
-.PHONY: clean
-clean: tidy
-	rm -rf build
-	rm -f cebs.owl
+### Trees and Tables
 
-.PHONY: all
-all: cebs.owl
+build/%.html: build/validation.owl build/%.tsv | build/robot.jar
+	$(ROBOT) validate \
+	--input $< \
+	--table $(word 2,$^) \
+	--format html \
+	--standalone true \
+	--output-dir $(dir $@)
+
+build/%.xlsx: build/validation.owl build/%.tsv | build/robot.jar
+	$(ROBOT) validate \
+	--input $< \
+	--table $(word 2,$^) \
+	--format xlsx \
+	--standalone true \
+	--output-dir $(dir $@)
+
+TREES := build/cebs.html cebs.owl
+build/cebs.html: cebs.owl | build/robot-tree.jar
+	java -jar build/robot-tree.jar tree \
+	--input $< \
+	--tree $@
+	mv $@ $@.tmp
+	sed "s/params.get('text')/params.get('text') || 'assay'/" $@.tmp > $@
+	rm $@.tmp
+
+VIEWS := $(ENDPOINT_FILES) $(TREES)
+
+
+### Query Interface
+
+build/www:
+	mkdir -p $@
+
+build/%.csv: cebs.owl src/%.rq | build/robot.jar
+	$(ROBOT) query --input $(word 1,$^) --select $(word 2,$^) $@
+
+build/www/%.json: build/%.csv
+	src/tree.py --mode JSON $< > $@
+
+build/www/%: src/% | build/www
+	cp $< $@
+
+.PHONY: www
+www: build/www/index.html build/www/demo.js build/www/demo.css build/www/assay.json
+
+

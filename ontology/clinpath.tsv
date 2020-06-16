@@ -1,5 +1,5 @@
 ID	Label	Standard Term	Parent Assay	Measurand	Data Transformation	Value Specification	Measurement Units	Description
-ID	LABEL		C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')
+ID	LABEL	A CEBS:A1	C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')
 			subclass-of|equivalent-to 'assay'	subclass-of|equivalent-to 'material entity'	subclass-of|equivalent-to 'data transformation'	subclass-of|equivalent-to 'value specification'	instance-of 'measurement unit label'	
 CEBS:X1	creatine kinase activity assay	Creatine kinase	analyte assay	creatine kinase		concentration value specification	IU/L	An activity assay that measures the activity of creatine kinase in a sample.
 CEBS:X2	creatinine concentration assay	Creatinine	analyte assay	creatinine		concentration value specification	mg/dL	An analyte assay that measures the concentration of creatinine in a sample.

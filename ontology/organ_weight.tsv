@@ -1,5 +1,5 @@
 ID	Label	Standard Term	Parent Assay	Measurand	Data Transformation	Value Specification	Measurement Units	Description																		
-ID	LABEL		C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')																			
+ID	LABEL	A CEBS:A1	C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')																			
 			subclass-of|equivalent-to 'assay'	subclass-of|equivalent-to 'material entity'	subclass-of|equivalent-to 'data transformation'	subclass-of|equivalent-to 'value specification'	instance-of 'measurement unit label'	
 CEBS:X101	heart weight assay	Heart weight	mass measurement assay	heart		mass value specification	g	The measurement of the mass of the heart.
 CEBS:X102	kidney weight assay	Kidney weight	mass measurement assay	kidney		mass value specification	g	The measurement of the mass of a kidney.

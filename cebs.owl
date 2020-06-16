@@ -6,7 +6,8 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:example="http://example.com/">
     <Ontology/>
     
 
@@ -19,6 +20,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://example.com/CEBS_A1 -->
+
+    <AnnotationProperty rdf:about="http://example.com/CEBS_A1"/>
     
 
 
@@ -207,6 +214,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Creatine kinase</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creatine kinase activity assay</rdfs:label>
     </Class>
     
@@ -257,6 +265,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Triglyceride</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triglyceride concentration assay</rdfs:label>
     </Class>
     
@@ -307,6 +316,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heart weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heart weight assay</rdfs:label>
     </Class>
     
@@ -357,6 +367,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kidney weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kidney weight assay</rdfs:label>
     </Class>
     
@@ -407,6 +418,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Liver weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liver weight assay</rdfs:label>
     </Class>
     
@@ -457,6 +469,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lung weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lung weight assay</rdfs:label>
     </Class>
     
@@ -507,6 +520,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thymus weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thymus weight assay</rdfs:label>
     </Class>
     
@@ -557,6 +571,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Testis weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">testis weight assay</rdfs:label>
     </Class>
     
@@ -607,6 +622,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spleen weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spleen weight assay</rdfs:label>
     </Class>
     
@@ -657,6 +673,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Adrenal gland weight</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adrenal gland weight assay</rdfs:label>
     </Class>
     
@@ -707,6 +724,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Basophil count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">basophil count assay</rdfs:label>
     </Class>
     
@@ -757,6 +775,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eosinophil count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">eosinophil count assay</rdfs:label>
     </Class>
     
@@ -807,6 +826,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Erythrocyte count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">erythrocyte count assay</rdfs:label>
     </Class>
     
@@ -857,6 +877,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hemoglobin</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hemoglobin concentration assay</rdfs:label>
     </Class>
     
@@ -907,6 +928,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lymphocyte count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lymphocyte count assay</rdfs:label>
     </Class>
     
@@ -957,6 +979,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Monocyte count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monocyte count assay</rdfs:label>
     </Class>
     
@@ -1007,6 +1030,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Neutrophil count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutrophil count assay</rdfs:label>
     </Class>
     
@@ -1057,6 +1081,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Platelet count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">platelet count assay</rdfs:label>
     </Class>
     
@@ -1107,6 +1132,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reticulocyte count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reticulocyte count assay</rdfs:label>
     </Class>
     
@@ -1157,6 +1183,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Creatinine</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creatinine concentration assay</rdfs:label>
     </Class>
     
@@ -1213,6 +1240,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mean cell hemoglobin</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mean cell hemoglobin assay</rdfs:label>
     </Class>
     
@@ -1269,6 +1297,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mean cell hemoglobin concentration</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mean cell hemoglobin concentration assay</rdfs:label>
     </Class>
     
@@ -1319,6 +1348,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albumin</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">albumin concentration assay</rdfs:label>
     </Class>
     
@@ -1369,6 +1399,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Urea nitrogen</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">urea nitrogen concentration assay</rdfs:label>
     </Class>
     
@@ -1419,6 +1450,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">White blood cell count</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">white blood cell count assay</rdfs:label>
     </Class>
     
@@ -1475,6 +1507,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mean cell volume</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mean cell volume assay</rdfs:label>
     </Class>
     
@@ -1525,6 +1558,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alkaline phosphatase</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alkaline phosphatase activity assay</rdfs:label>
     </Class>
     
@@ -1575,6 +1609,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cholesterol</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cholesterol concentration assay</rdfs:label>
     </Class>
     
@@ -1625,6 +1660,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protein, total</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">total protein concentration assay</rdfs:label>
     </Class>
     
@@ -1675,6 +1711,7 @@
                 </someValuesFrom>
             </Restriction>
         </rdfs:subClassOf>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sorbitol dehydrogenase</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sorbitol dehydrogenase activity assay</rdfs:label>
     </Class>
     
@@ -1984,6 +2021,7 @@
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000070">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assay</rdfs:label>
     </Class>
     
@@ -1998,19 +2036,11 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/OBI_0000418 -->
-
-    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000418">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000443"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">measuring glucose concentration in blood serum assay</rdfs:label>
-    </Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/OBI_0000443 -->
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000443">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analyte assay</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">analyte assay</rdfs:label>
     </Class>
     
@@ -2020,6 +2050,7 @@
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000445">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mass measurement assay</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mass measurement assay</rdfs:label>
     </Class>
     
@@ -2029,6 +2060,7 @@
 
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000630">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <example:CEBS_A1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hematology assay</example:CEBS_A1>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hematology assay</rdfs:label>
     </Class>
     
@@ -2057,15 +2089,6 @@
     <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000679">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">average value</rdfs:label>
-    </Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/OBI_0000820 -->
-
-    <Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000820">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">activated partial thromboplastin time assay</rdfs:label>
     </Class>
     
 

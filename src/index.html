@@ -87,18 +87,23 @@
 
       <div id="query_result_box">
         <div id="query_controls" class="row">
-          <button type="" id="query_search" class="btn btn-primary">Search</button>
-          <button type="" id="query_open" class="btn btn-primary">Open in Graph<i>i</i>QL</button>
-          &nbsp; &nbsp; &nbsp;
-          <button type="" id="query_first" class="btn btn-primary">First</button>
-          <button type="" id="query_previous" class="btn btn-primary" disabled="disabled">Previous</button>
-          <button type="" id="query_next" class="btn btn-primary" disabled="disabled">Next</button>
-          <button type="" id="query_all" class="btn btn-primary">All</button>
-          &nbsp; &nbsp; &nbsp;
-          Download table as
-          <button type="" id="download_json" class="btn btn-primary" disabled="disabled">JSON</button>
-          <button type="" id="download_csv" class="btn btn-primary" disabled="disabled">CSV</button>
-          <button type="" id="download_xlsx" class="btn btn-primary" disabled="disabled">Excel</button>
+          <div class="col-md-2 text-left">
+            <button type="" id="query_search" class="btn btn-primary">Search</button>
+          </div>
+          <div class="col-md-4 text-center">
+            <button type="" id="query_first" class="btn btn-primary">First</button>
+            <button type="" id="query_previous" class="btn btn-primary" disabled="disabled">Previous</button>
+            <button type="" id="query_next" class="btn btn-primary" disabled="disabled">Next</button>
+            <button type="" id="query_all" class="btn btn-primary">All</button>
+          </div>
+          <div class="col-md-4 text-center">
+            <button type="" id="download_json" class="btn btn-primary" disabled="disabled">JSON</button>
+            <button type="" id="download_csv" class="btn btn-primary" disabled="disabled">CSV</button>
+            <button type="" id="download_xlsx" class="btn btn-primary" disabled="disabled">Excel</button>
+          </div>
+          <div class="col-md-2 text-right">
+            <button type="" id="query_open" class="btn btn-primary">Open in CEBSR API</button>
+          </div>
         </div>
         <h4 id="query_status" class="row">&nbsp;</h4>
         <table id="query_result" class="table">

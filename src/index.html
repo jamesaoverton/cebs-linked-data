@@ -24,17 +24,29 @@
 
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation"><a id="browse-tab" href="#browse" aria-controls="search" role="tab" data-toggle="tab">Browse</a></li>
+        <li role="presentation"><a id="help-tab" href="#help" aria-controls="search" role="tab" data-toggle="tab">Help</a></li>
         <li role="presentation" class="active"><a href="#search" aria-controls="search" role="tab" data-toggle="tab">Search</a></li>
         <li role="presentation"><a href="#query" aria-controls="query" role="tab" data-toggle="tab" onclick="build_query()">Query</a></li>
       </ul>
 
       <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane" id="browse">
+      <div class="tab-content" style="padding-top: 1em; padding-bottom: 1em">
+        <div role="tabpanel" class="tab-pane" id="help">
+          <p>This prototype shows how ontologies can be used to drive a search interface for the CEBSR API.</p>
+          <ol>
+            <li>A Google Sheet is used to define a number of terms, and import terms from other ontologies</li>
+            <li>A Web Ontology Language (OWL) file is generated</li>
+            <li>The OWL file is used to generate the tree views for this prototype</li>
+            <li>The tree views are used to generate GraphQL query strings</li>
+            <li>The query strings are executed against the CEBSR API, and a table of results displayed</li>
+          </ol>
+          <p>For more information see:</p>
           <ul>
             <li><a href="https://manticore.niehs.nih.gov/cebssearch/cebsr">CEBSR API Home</a></li>
             <li><a href="https://manticore.niehs.nih.gov/cebsr-api">CEBSR GraphQL Query</a></li>
+            <li><a href="https://docs.google.com/spreadsheets/d/15TG1MDtDT0qB5fi7zNJp979iTYPYfOrdq_FHuNyYsTk/edit#gid=611609406">CEBS Linked Data Terms (Google Sheet)</a></li>
+            <li><a href="tree.html">CEBS Ontology Tree View</a></li>
+            <li><a href="cebs.owl">CEBS Ontology OWL File</a></li>
           </ul>
         </div>
 
@@ -47,26 +59,81 @@
                   <input type="text" class="form-control" id="assay_type" autocomplete="off">
                 </div>
               </div>
+              <div class="form-group">
+                <label for="test_article" class="col-sm-3 control-label">Test Article:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="test_article" autocomplete="off" value="TODO">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="species" class="col-sm-3 control-label">Species:</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="species" autocomplete="off" value="TODO">
+                </div>
+              </div>
             </form>
             <div id="trees" class="col-md-6">
               <div id="assay_tree"></div>
             </div>
           </div> <!-- /row -->
-          <button type="" id="form_search" class="btn btn-primary">Search</button>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="query">
           <div class="row">
             <div id="query_editor" class="editor">QUERY</div>
           </div> <!-- /row -->
-          <button type="" id="query_search" class="btn btn-primary">Search</button>
         </div>
+      </div>
 
-      <div id="query_result">
+      <div id="query_result_box">
+        <div id="query_controls" class="row">
+          <button type="" id="query_search" class="btn btn-primary">Search</button>
+          <button type="" id="query_open" class="btn btn-primary">Open in Graph<i>i</i>QL</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="" id="query_first" class="btn btn-primary">First</button>
+          <button type="" id="query_previous" class="btn btn-primary" disabled="disabled">Previous</button>
+          <button type="" id="query_next" class="btn btn-primary" disabled="disabled">Next</button>
+          <button type="" id="query_all" class="btn btn-primary">All</button>
+          &nbsp; &nbsp; &nbsp;
+          Download table as
+          <button type="" id="download_json" class="btn btn-primary" disabled="disabled">JSON</button>
+          <button type="" id="download_csv" class="btn btn-primary" disabled="disabled">CSV</button>
+          <button type="" id="download_xlsx" class="btn btn-primary" disabled="disabled">Excel</button>
+        </div>
+        <h4 id="query_status" class="row">&nbsp;</h4>
+        <table id="query_result" class="table">
+          <tr>
+            <th>STUDY_TITLE</th>
+            <th>TEST_NAME</th>
+            <th>DATA_DOMAIN</th>
+            <th>ABSTRACT_URL</th>
+            <th>CEBS_URL</th>
+            <th>CHEMTRACK_NUMBER</th>
+            <th>CITATION</th>
+            <th>DATA_SOURCE</th>
+            <th>DOI_URL</th>
+            <th>DURATION</th>
+            <th>INSTITUTION</th>
+            <th>LABORATORY</th>
+            <th>PRINCIPAL_INVESTIGATOR</th>
+            <th>PUBLICATION_ID</th>
+            <th>PUBLICATION_NUMBER</th>
+            <th>PWG_APPROVAL_DATE</th>
+            <th>START_DATE</th>
+            <th>STUDY_AREA</th>
+            <th>STUDY_DESIGN</th>
+            <th>STUDY_TYPE</th>
+            <th>STUDY_VARIABLES</th>
+            <th>SUBJECT_TYPE</th>
+            <th>TDMSE_LOCK_DATE</th>
+            <th>TDMS_NUMBER</th>
+            <th>TECH_REPORT_UR</th>
+          </tr>
+        </table>
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>

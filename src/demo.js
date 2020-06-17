@@ -1,5 +1,5 @@
-var endpoint = "https://manticore.niehs.nih.gov/cebsr-api#operationName=endpoint_search&query="
-var offset = 0;
+var endpoint = "https://cebs.ontodev.com/"
+var graphiql = "https://manticore.niehs.nih.gov/cebsr-api#operationName=endpoint_search&query="
 var limit = 10;
 
 // ## Utility Functions
@@ -106,21 +106,39 @@ $('#limit').on('blur', function() {
 });
 
 
-function build_query() {
-  var template;
-  var output = "query endpoint_search{\n";
-  if (selected_assay && selected_assay.children) {
-    output += "  studyTestDataDomainView(testId_TestName_In:\"";
-    output += assay_input.val();
-    for (var i=0; i < selected_assay.children.length; i++) {
-      output += "," + selected_assay.children[i].text;
-    }
-    output += "\", first:20){\n";
-  } else {
-    output += "  studyTestDataDomainView(testName:\"";
-    output += assay_input.val();
-    output += "\", first:20){\n";
+function build_query(options) {
+  if (!options) {
+    options = {first: limit};
   }
+  assay = assay_input.val();
+  if (assay == "Any assay" || assay == "assay") {
+  } else if (selected_assay && selected_assay.children) {
+    options.testId_TestName_In = assay_input.val();
+    for (var i=0; i < selected_assay.children.length; i++) {
+      options.testId_TestName_In += "," + selected_assay.children[i].text;
+    }
+  } else {
+    options.testName = assay;
+  }
+
+  var query = "studyTestDataDomainView(";
+  for (var k in options) {
+    if (typeof options[k] == "number") {
+      query += k +":"+ options[k] + " ";
+    } else {
+      query += k +":\""+ options[k] + "\" ";
+    }
+  }
+  query += ")"
+
+  var output = "query endpoint_search{\n";
+  output += "  " + query + "{\n";
+  output += "    pageInfo {\n",
+  output += "      startCursor\n",
+  output += "      endCursor\n",
+  output += "      hasPreviousPage\n",
+  output += "      hasNextPage\n",
+  output += "    }\n",
   output += "    edges{\n";
   output += "      node{\n";
   output += "        dataDomain\n";
@@ -140,7 +158,7 @@ function build_query() {
   output += "    }\n";
   output += "  }\n";
   output += "}\n";
-  query_editor.setValue(output);
+  query_editor.setValue(output, -1);
   return output;
 }
 
@@ -163,23 +181,136 @@ var langTools = ace.require("ace/ext/language_tools");
 langTools.setCompleters();
 langTools.addCompleter(labelCompleter);
 
+var headers = [
+  "STUDY_TITLE",
+  "TEST_NAME",
+  "DATA_DOMAIN",
+  "ABSTRACT_URL",
+  "CEBS_URL",
+  "CHEMTRACK_NUMBER",
+  "CITATION",
+  "DATA_SOURCE",
+  "DOI_URL",
+  "DURATION",
+  "INSTITUTION",
+  "LABORATORY",
+  "PUBLICATION_ID",
+  "PUBLICATION_NUMBER",
+  "PWG_APPROVAL_DATE",
+  "START_DATE",
+  "STUDY_AREA",
+  "STUDY_DESIGN",
+  "STUDY_TYPE",
+  "STUDY_VARIABLES",
+  "SUBJECT_TYPE",
+  "TDMSE_LOCK_DATE",
+  "TDMS_NUMBER",
+  "TECH_REPORT_URL"
+];
 
-function execute_query() {
-  $("#query_result").text("SEARCHING ...").show();
-  var query = query_editor.getValue();
-  var url = endpoint + encodeURIComponent(query)
-  window.open(url);
+$("#query_result").hide();
+function build_table(data) {
+  $("#query_result tr").slice(1).remove();
+  table = $("#query_result").first();
+  table.show();
+  var rows = data.data
+  for (var i=0; i < rows.length; i++) {
+    row = rows[i];
+    tr = $("<tr>").appendTo(table);
+    for (var j=0; j < headers.length; j++) {
+      td = $("<td>").appendTo(tr);
+      value = row[headers[j]];
+      if (value) {
+        td.text(value);
+      }
+    }
+  }
+
+  $("#query_status").text("Showing " + rows.length + " results");
+
+  if (data.pageInfo.hasPreviousPage) {
+    $("#query_previous").removeAttr("disabled");
+  } else {
+    $("#query_previous").attr("disabled", "disabled");
+  }
+  if (data.pageInfo.hasNextPage) {
+    $("#query_next").removeAttr("disabled");
+  } else {
+    $("#query_next").attr("disabled", "disabled");
+  }
+
+  $("#download_json").removeAttr("disabled");
+  $("#download_csv").removeAttr("disabled");
+  $("#download_xlsx").removeAttr("disabled");
 }
 
-$("#query_result_box").hide();
+function local_query() {
+  var query = query_editor.getValue();
+  return endpoint + "query.json?query=" + encodeURIComponent(query);
+}
+
+function remote_query() {
+  var query = query_editor.getValue();
+  return graphiql + encodeURIComponent(query);
+}
+
+
+var current = {};
+var error = {};
+function execute_query() {
+  $("#query_status").text("SEARCHING ...");
+  $.ajax({
+    dataType: "json",
+    url: local_query(),
+    success: function(data, textStatus, jqXHR) {
+      current = data;
+      build_table(data);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      error = jqXHR;
+      $("#query_status").text("ERROR: " + textStatus + " " + errorThrown);
+    }
+  });
+}
+
 $("#form_search").on("click", function() {
-  offset = 0;
-  $("#query_result_box").show();
   build_query();
   execute_query();
 });
 $("#query_search").on("click", function() {
-  offset = 0;
-  $("#query_result_box").show();
   execute_query();
+});
+$("#query_open").on("click", function() {
+  var query = query_editor.getValue();
+  var url = graphiql + encodeURIComponent(query)
+  window.open(url);
+});
+$("#query_first").on("click", function() {
+  build_query();
+  execute_query();
+});
+$("#query_previous").on("click", function() {
+  build_query({first: limit, before: current.pageInfo.startCursor});
+  execute_query();
+});
+$("#query_next").on("click", function() {
+  build_query({first: limit, after: current.pageInfo.endCursor});
+  execute_query();
+});
+$("#query_all").on("click", function() {
+  build_query({});
+  execute_query();
+});
+
+$("#download_json").on("click", function() {
+  var url = local_query();
+  window.open(url);
+});
+$("#download_csv").on("click", function() {
+  var url = local_query().replace("/query.json", "/query.csv");
+  window.open(url);
+});
+$("#download_xlsx").on("click", function() {
+  var url = local_query().replace("/query.json", "/query.xlsx");
+  window.open(url);
 });

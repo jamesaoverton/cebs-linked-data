@@ -9,3 +9,10 @@ CEBS:U6	10^6/uL	measurement unit label
 CEBS:U7	pg	measurement unit label
 CEBS:U8	%	measurement unit label
 CEBS:U9	mg/g	measurement unit label
+CEBS:U10	mmol/L	measurement unit label
+CEBS:U11	ng/mL	measurement unit label
+CEBS:U12	ng/dL	measurement unit label
+CEBS:U13	ug/dL	measurement unit label
+CEBS:U14	/100 WBC	measurement unit label
+CEBS:U15	pg/mL	measurement unit label
+CEBS:U16	ug/mL	measurement unit label

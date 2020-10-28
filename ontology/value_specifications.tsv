@@ -6,3 +6,4 @@ CEBS:VS3	quantity value specification	owl:Class	value specification
 CEBS:VS4	volume value specification	owl:Class	value specification
 CEBS:VS5	percentage value specification	owl:Class	ratio value specification
 CEBS:VS6	ratio value specification	owl:Class	value specification
+CEBS:VS7	range value specification	owl:Class	value specification	LABO_0000154

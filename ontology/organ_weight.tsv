@@ -1,5 +1,5 @@
 ID	Label	Standard Term	Parent Assay	Measurand	Data Transformation	Value Specification	Measurement Units	Description																		
-ID	LABEL		C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')																			
+ID	LABEL	A CEBS:A1	C %	C ('has specified input' some %) and (realizes some ('analyte role' and ('inheres in' some %)))	C 'has part' some %	C 'has specified output' some %	C 'has specified output' some ('has measurement unit label' value '%')																			
 			subclass-of|equivalent-to 'assay'	subclass-of|equivalent-to 'material entity'	subclass-of|equivalent-to 'data transformation'	subclass-of|equivalent-to 'value specification'	instance-of 'measurement unit label'	
 CEBS:X101	heart weight assay	Heart weight	mass measurement assay	heart		mass value specification	g	The measurement of the mass of the heart.
 CEBS:X102	kidney weight assay	Kidney weight	mass measurement assay	kidney		mass value specification	g	The measurement of the mass of a kidney.
@@ -9,3 +9,22 @@ CEBS:X105	thymus weight assay	Thymus weight	mass measurement assay	thymus		mass 
 CEBS:X106	testis weight assay	Testis weight	mass measurement assay	testis		mass value specification	g	The measurement of the mass of the testis.
 CEBS:X107	spleen weight assay	Spleen weight	mass measurement assay	spleen		mass value specification	g	The measurement of the mass of the spleen.
 CEBS:X108	adrenal gland weight assay	Adrenal gland weight	mass measurement assay	adrenal gland		mass value specification	g	The measurement of the mass of an adrenal gland.
+CEBS:X109	epididymis weight assay	Epididymis weight	mass measurement assay	epididymis		mass value specification	g	The measurement of the mass of the epididymis.
+CEBS:X110	dorso-lateral prostate gland weight assay	Prostate gland, dorso-lateral, weight	mass measurement assay	prostate gland dorsolateral lobe		mass value specification	g	The measurement of the mass of the dorso-lateral prostate gland.
+CEBS:X111	ventral prostate gland weight assay	Prostate gland, ventral, weight	mass measurement assay	prostate gland ventral lobe		mass value specification	g	The measurement of the mass of the ventral prostate gland.
+CEBS:X112	Cowpers gland weight assay	Cowpers gland weight	mass measurement assay	bulbo-urethral gland		mass value specification	g	The measurement of the mass of the Cowper's gland.
+CEBS:X113	preputial gland weight assay	Preputial gland weight	mass measurement assay	preputial gland		mass value specification	g	The measurement of the mass of the preputial gland.
+CEBS:X114	ovary weight assay	Ovary weight	mass measurement assay	ovary		mass value specification	g	The measurement of the mass of an ovary.
+CEBS:X115	thyroid gland weight assay	Thyroid gland weight	mass measurement assay	thyroid gland		mass value specification	g	The measurement of the mass of the thyroid gland.
+CEBS:X116	brain weight assay	Brain weight	mass measurement assay	brain		mass value specification	g	The measurement of the mass of the brain.
+CEBS:X117	spleen weight assay	Spleen weight	mass measurement assay	spleen		mass value specification	g	The measurement of the mass of the spleen.
+CEBS:X118	uterus weight assay	Uterus weight	mass measurement assay	uterus		mass value specification	g	The measurement of the mass of the uterus.
+CEBS:X119	cauda epididymis weight assay	Epididymis, cauda, weight	mass measurement assay	cauda epididymis		mass value specification	g	The measurement of the mass of the cauda epididymis.
+CEBS:X121	small intestine weight assay	Intestine, small, weight	mass measurement assay	small intestine		mass value specification	g	The measurement of the mass of the small intestine.
+CEBS:X122	femur bone weight assay	Bone, femur, weight	mass measurement assay	femur		mass value specification	g	The measurement of the mass of the femur.
+CEBS:X123	pituitary gland weight assay	Pituitary gland weight	mass measurement assay	pituitary gland		mass value specification	g	The measurement of the mass of the pituitary gland.
+CEBS:X124	prostate gland weight assay	Prostate gland weight	mass measurement assay	prostate gland		mass value specification	g	The measurement of the mass of the prostate gland.
+CEBS:X126	forestomach weight assay	Stomach, forestomach, weight	mass measurement assay	forestomach		mass value specification	g	The measurement of the mass of the forestomach.
+CEBS:X127	glandular stomach weight assay	Stomach, glandular, weight	mass measurement assay	stomach glandular region		mass value specification	g	The measurement of the mass of the glandular stomach.
+CEBS:X128	trachea weight assay	Trachea weight	mass measurement assay	trachea		mass value specification	g	The measurement of the mass of the trachea.
+CEBS:X129	stomach weight assay	Stomach weight	mass measurement assay	stomach		mass value specification	g	The measurement of the mass of the stomach.

@@ -1,5 +1,6 @@
 ID	Label	Type	Parent	Note
 ID	LABEL	TYPE	C %
+owl:Thing	Thing	
 BFO:0000051	has part	owl:ObjectProperty
 BFO:0000055	realizes	owl:ObjectProperty
 RO:0000052	inheres in	owl:ObjectProperty
@@ -8,32 +9,32 @@ OBI:0000299	has specified output	owl:ObjectProperty
 IAO:0000039	has measurement unit label	owl:ObjectProperty
 IAO:0000115	definition	owl:AnnotationProperty
 IAO:0000118	alternative term	owl:AnnotationProperty
-BFO:0000015	process	owl:Class
+BFO:0000015	process	owl:Class	owl:Thing
 GO:0008150	biological process	owl:Class	process
 GO:0050817	coagulation	owl:Class	biological process
 GO:0002377	immunoglobulin production	owl:Class	biological process
-HP:0000118	Phenotypic Abnormality	owl:Class
+HP:0000118	Phenotypic Abnormality	owl:Class	owl:Thing
 HP:0001944	Dehydration	owl:Class	Phenotypic Abnormality
-DOID:419	disease	owl:Class
+DOID:419	disease	owl:Class	owl:Thing
 DOID:409	liver disease	owl:Class	disease
 OBI:0000011	planned process	owl:Class	process
 OBI:0000070	assay	owl:Class	planned process
 OBI:0000443	analyte assay	owl:Class	assay
-OBI:0000820	activated partial thromboplastin time assay	owl:Class	assay
-OBI:0000418	measuring glucose concentration in blood serum assay	owl:Class	analyte assay
+OBI:0000630	hematology assay	owl:Class	assay	
+OBI:0000445	mass measurement assay	owl:Class	assay
 OBI:0200000	data transformation	owl:Class	planned process
 OBI:0200170	averaging data transformation	owl:Class	data transformation
 OBI:0200041	k-means clustering	owl:Class	data transformation
-BFO:0000023	role	owl:Class
+BFO:0000023	role	owl:Class	owl:Thing
 OBI:0000275	analyte role	owl:Class	role
-IAO:0000030	information content entity	owl:Class
+IAO:0000030	information content entity	owl:Class	owl:Thing
 OBI:0001933	value specification	owl:Class	information content entity
 IAO:0000027	data item	owl:Class	information content entity
 OBI:0000679	average value	owl:Class	data item
 IAO:0000109	measurement datum	owl:Class	data item
 IAO:0000003	measurement unit label	owl:Class	information content entity
 UO:0000021	g	measurement unit label		mass unit
-BFO:0000040	material entity	owl:Class
+BFO:0000040	material entity	owl:Class	owl:Thing
 CHEBI:24431	chemical entity	owl:Class	material entity
 CHEBI:36277	bile acid salt	owl:Class	chemical entity
 CHEBI:16990	bilirubin IXα	owl:Class	chemical entity
@@ -55,8 +56,8 @@ UBERON:0000948	heart	owl:Class	material anatomical entity
 OBI:0100051	specimen	owl:Class	material entity
 OBI:0000651	urine specimen	owl:Class	specimen
 OBI:0000655	blood specimen	owl:Class	specimen
-OBI:0000630	hematology assay	owl:Class	assay	
-OBI:0000445	mass measurement assay	owl:Class	assay
+
+
 NCIT:C67376	IU/L	measurement unit label		unit of arbitrary substance concentration
 NCIT:C67015	mg/dL	measurement unit label		unit of mass concentration
 NCIT:C67244	10^3/uL	measurement unit label		unit of cell concentration
@@ -85,5 +86,67 @@ NCIT:C67251	10^6/uL	measurement unit label
 UO:0000025	pg	measurement unit label
 UO:0000187	%	measurement unit label
 NCIT:C69104	mg/g	measurement unit label
-	percentage calculation
-	ratio calculation
+CEBS:T1	percentage calculation	owl:Class	data transformation	need to add to OBI?
+CEBS:T2	ratio calculation	owl:Class	data transformation	need to add to OBI?
+CEBS:T3	difference calculation	owl:Class	data transformation	need to add to OBI?
+NCIT:C64387	mmol/L	measurement unit label		molarity unit
+CHEBI:26714	sodium salt	owl:Class	chemical entity
+CHEBI:26218	potassium salt	owl:Class	chemical entity
+CHEBI:23114	chloride salt	owl:Class	chemical entity
+NCIT:C17125	Serum Globulin	owl:Class	protein	serum protein
+UBERON:0001301	epididymis	owl:Class	material anatomical entity
+UBERON:0008808	prostate gland dorsolateral lobe	owl:Class	material anatomical entity
+UBERON:0007615	prostate gland ventral lobe	owl:Class	material anatomical entity
+UBERON:0002366	bulbo-urethral gland	owl:Class	material anatomical entity
+UBERON:0000359	preputial gland	owl:Class	material anatomical entity
+UBERON:0000992	ovary	owl:Class	material anatomical entity
+UBERON:0002046	thyroid gland	owl:Class	material anatomical entity
+PR:000001800	5'-nucleotidase	owl:Class	protein
+PR:000008153	aspartate aminotransferase	owl:Class	protein	aspartate aminotransferase, cytoplasmic
+CHEBI:16919	creatine	owl:Class	chemical entity
+CHEBI:81569	follicle stimulating hormone	owl:Class	chemical entity	Follicle stimulating hormone
+CHEBI:81568	luteinizing hormone	owl:Class	chemical entity	Luteinizing hormone
+CHEBI:18258	3,3',5-triiodo-L-thyronine	owl:Class	chemical entity	
+NCIT:C12527	erythroblast	owl:Class	cell
+NCIT:C67306	ng/mL	measurement unit label
+NCIT:C67326	ng/dL	measurement unit label
+NCIT:C67305	ug/dL	measurement unit label
+CHEBI:30660	thyroxine	owl:Class	chemical entity
+CHEBI:16990	bilirubin IXα	owl:Class	chemical entity
+UBERON:0000955	brain	owl:Class	material anatomical entity
+UBERON:0000995	uterus	owl:Class	material anatomical entity
+UBERON:0004360	cauda epididymis	owl:Class	material anatomical entity
+CL:0000765	erythroblast	owl:Class	cell
+HP:0032550	Howell-Jolly bodies	owl:Class	cell
+CHEBI:17423	Methemoglobin	owl:Class	chemical entity
+UBERON:0002046	thyroid gland	owl:Class	material anatomical entity
+PR:000003777	adiponectin	owl:Class	protein
+CHEBI:35156	calcium salt	owl:Class	chemical entity
+CHEBI:47775	high-density lipoprotein cholesterol	owl:Class	chemical entity
+CHEBI:47774	low-density lipoprotein cholesterol	owl:Class	chemical entity
+PR:000004685	cholinesterase	owl:Class	protein
+CHEBI:23965	estradiol	owl:Class	chemical entity
+PR:000009758	leptin	owl:Class	protein
+CHEBI:6495	lipoprotein	owl:Class	chemical entity
+CHEBI:16301	nitrite	owl:Class	chemical entity
+CHEBI:16247	phospholipid	owl:Class	chemical entity
+CHEBI:18367	phosphate(3−)	owl:Class	chemical entity
+CHEBI:17026	progesterone	owl:Class	chemical entity
+CHEBI:17347	testosterone	owl:Class	chemical entity
+CHEBI:81567	thyroid stimulating hormone	owl:Class	chemical entity
+CL:0002192	metamyelocyte	owl:Class	cell
+CL:0002193	myelocyte	owl:Class	cell
+CHEBI:29034	iron(3+)	owl:Class	chemical entity
+CHEBI:35143	hemoglobin	owl:Class	chemical entity
+UBERON:0002108	small intestine	owl:Class	material anatomical entity
+UBERON:0000981	femur	owl:Class	material anatomical entity
+UBERON:0000007	pituitary gland	owl:Class	material anatomical entity
+UBERON:0002367	prostate gland	owl:Class	material anatomical entity
+UBERON:0008827	forestomach	owl:Class	material anatomical entity
+UBERON:0011953	stomach glandular region	owl:Class	material anatomical entity
+UBERON:0003126	trachea	owl:Class	material anatomical entity
+NCIT:C34672	Heinz Body	owl:Class	cell
+UBERON:0000945	stomach	owl:Class	material anatomical entity
+NCIT:C67219	/100 WBC	measurement unit label
+NCIT:C67327	pg/ml	measurement unit label
+NCIT:C64572	ug/mL	measurement unit label
